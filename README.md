@@ -5,6 +5,8 @@ I created a Python log analyser to investigate authentication (login) activity a
 
 The tool reads logs from a .txt file which contains whether it was successful or failed, its IP address and the timestamp of the log.
 
+![Log File](Screenshots/Log%20File.png)
+
 This project improves my understanding of Cybersecurity and allows me to apply it to a real word scenario.
 
 
