@@ -28,7 +28,7 @@ The project focused on:
 
 ## How the Analyser Works
 
-1. The code opens up the log.txt file and reads the logs so they can be analysed.
+1. The code opens up the logs.txt file and reads the logs so they can be analysed.
 2. Each log is split using .split() and the login status, IP and timestamp are extracted.
 3. To store successful and failed logins dictionaries were used.
 4. If the IP exceeded more than 5 failed attempts the code flags it as potential brute force activity with a HIGH severity.
@@ -39,7 +39,7 @@ The project focused on:
 
 # Brute Force Detection 
 
-To detect a brute force attack, dictionaries for loops and if statements were used to count failed login attempts for each IP. The max amount of login attempts was 5, if this threshold was exceed the code flags the IP in question as potential brute force activity and gives it a high severity.
+To detect a brute force attack, dictionaries for loops and if statements were used to count failed login attempts for each IP. The max amount of login attempts was 5, if this threshold was exceeded the code flags the IP in question as potential brute force activity and gives it a high severity.
 
 # Suspicious Login Detection 
 
@@ -63,7 +63,40 @@ The output is then displayed using f-strings.
 
 The log analyser was tested using authentication log entries containing both normal and potentially suspicious/brute force activity.
 
-Multiple failed login attempts were created for the the same IP address to test whether the analyser could identify potential brute-force activity. The IP 192.168.1.19 had 6 failed login attempts. The program flagged the IP as potential brute force activity and assigned it a severity of HIGH as it exceeded the threshold of five failures.
+## Normal Activity Test
+
+There were also normal IP addresses, with a few fails and normal log times. They were not flagged for any kind of suspicious or brute force activity 
+
+## Brute Force Detection Test
+
+Multiple failed login attempts were created for the same IP address to test whether the analyser could identify potential brute-force activity. The IP 192.168.1.19 had 6 failed login attempts. The program flagged the IP as potential brute force activity and assigned it a severity of HIGH as it exceeded the threshold of five failures.
+
+## Suspicious Logins Test
+
+Login attempts before 6:00 were created to test if suspicious log ins would be detected.
+The program identified that the login from 192.168.1.15 at 3:02:15 was suspicious and showed its timestamp.
+
+## Security Report Test 
+
+The security report was checked to ensure that the totals matched the activity in the log file.
+
+The analyser successfully reported:
+
+6 IP addresses analysed
+12 failed login attempts
+3 successful login attempts
+1 HIGH severity alert
+3 suspicious login events
+
+# Results 
+
+The analyser successfully identified potential brute-force attacks, suspicious login times and normal login activity.
+
+Testing confirmed that the detection rules and security report produced the expected results.
+
+# What I learned 
+
+I gained a stronger understanding of python dictionaries, lists and loops. I also understood how Python can be applied to tasks such as log analysis.
 
 
 
@@ -86,33 +119,7 @@ Multiple failed login attempts were created for the the same IP address to test 
 
 
 
-Reads login data from a .txt log file
-Identifies failed login attempts
-Extracts the IP address associated with each failed attempt
-Counts the number of failed attempts from each IP address
-Displays the results in a readable format
 
 
-Example log:
-
-FAILED login from 192.168.1.10
-SUCCESS login from 192.168.1.20
-FAILED login from 192.168.1.10
-FAILED login from 192.168.1.15
-FAILED login from 192.168.1.10
-
-Output:
-
-Failed login attempts by IP:
-192.168.1.10: 3 failed attempts
-192.168.1.15: 1 failed attempts
-
-
-Skills Practised:
-Python dictionaries
-Loops
-Conditional statements
-File handling
-String manipulation
 
 
