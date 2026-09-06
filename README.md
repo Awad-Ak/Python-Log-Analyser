@@ -94,6 +94,9 @@ The analyser successfully identified potential brute-force attacks, suspicious l
 
 Testing confirmed that the detection rules and security report produced the expected results.
 
+
+![Full Output](Screenshots/Full%20Output.png)
+
 # What I learned 
 
 I gained a stronger understanding of python dictionaries, lists and loops. I also understood how Python can be applied to tasks such as log analysis.
