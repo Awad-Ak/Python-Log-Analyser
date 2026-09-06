@@ -35,17 +35,17 @@ The project focused on:
 5. The hour of the login is also checked and any login before 6:00 is considered suspicious activity and flagged.
 6. After a full analysis a security report is created containing the total number of IP addresses analysed, failed and successful login attempts, HIGH severity alerts and suspicious login events.
 
-## Security Features
+# Security Features
 
-# Brute Force Detection 
+## Brute Force Detection 
 
 To detect a brute force attack, dictionaries for loops and if statements were used to count failed login attempts for each IP. The max amount of login attempts was 5, if this threshold was exceeded the code flags the IP in question as potential brute force activity and gives it a high severity.
 
-# Suspicious Login Detection 
+## Suspicious Login Detection 
 
 The code takes the hour from each timestamp using split and int. An if statement is used to check if the login was before 6:00. Suspicious events are stored in a list which uses append(), this allows the program to keep track of the IP in question.
 
-# Security Report 
+## Security Report 
 
 Using len() and sum() the program calculates the key data for the report.
 
